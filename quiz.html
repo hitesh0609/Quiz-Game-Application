@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesone CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- animation stylesheet -->
+    <link href="css/animate.css" rel="stylesheet">
+
+    <!-- Font Link -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <title>Quiz App</title>
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container my-3">
+            <a href="index.html" class="h1"><i class="fa fa-angle-left color-dark"></i></a>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container ">
+        <div class="row"><br><br>
+            <div class="col-sm-12 col-sm-offset-2" id="quiz_web">
+                <div class="progress mb-2">
+                    <div class="progress-bar bg-blue" role="progressbar" style="width: 1%" aria-valuenow="40"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
+                <!--  timer  -->
+                <center>
+                    <div id="app" class="animated wow pulse mt-4"></div>
+                </center>
+                <center>
+                    <div class="loader">
+                        <div class="spinner-border mt-5" role="status" id="loadbar" style="display: none;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </center>
+                <div class="row">
+                    <div class="col-lg-6 offset-md-3">
+                        <div id="quiz" class="quiz">
+                            <div class="question mb-3 animated wow zoomIn">
+                                <h3><span class="label label-warning" id="qid">1.</span>
+                                    <span id="question"> National game of India?</span>
+                                </h3>
+                            </div>
+                            <ul class="row">
+                                <li class="animated wow fadeInUp delay-0-1s">
+                                    <input type="radio" id="f-option" name="selector" value="1">
+                                    <label for="f-option" class="align-middle  element-animation">Cricket</label>
+                                    <div class="check"></div>
+                                </li>
+                                <li class="animated wow fadeInUp delay-0-2s">
+                                    <input type="radio" id="s-option" name="selector" value="2">
+                                    <label for="s-option" class="element-animation">Hockey</label>
+                                    <div class="check">
+                                        <div class="inside"></div>
+                                    </div>
+                                </li>
+                                <li class="animated wow fadeInUp delay-0-3s">
+                                    <input type="radio" id="t-option" name="selector" value="3">
+                                    <label for="t-option" class="element-animation">Football</label>
+                                    <div class="check">
+                                        <div class="inside"></div>
+                                    </div>
+                                </li>
+                                <li class="animated wow fadeInUp delay-0-4s">
+                                    <input type="radio" id="x-option" name="selector" value="4">
+                                    <label for="x-option" class="element-animation">Kabaddi</label>
+                                    <div class="check">
+                                        <div class="inside"></div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="text-center">
+                                <button class="btn btn-primary mr-2">Flip</button>
+                                <button class="btn btn-primary">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- result modal -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="modal fade mt-5 hide" id="scoreModal" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog mt-5" role="document">
+                    <div class="modal-content rounded-modal shadow" style="margin-top: 4rem;">
+                        <center>
+                            <span class="loginSquare mt-n5">
+                                <p class="text-white line-height-24 text-center ml-n2 mt-2" id="exampleModalLabel">
+                                    <b>Excellent !</b>
+                                </p>
+                            </span>
+                        </center>
+                        <!-- dotted fireworks -->
+                        <div class="pyro">
+                            <div class="before"></div>
+                            <div class="after"></div>
+                        </div>
+                        <div class="modal-header border-0 p-0">
+                            <a href="category.html"><button type="button" class="close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </a>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-4">
+                                <center>
+                                    <img src="images/star.png" class="img-fluid mt-4 animated wow bounce delay-0-2s" />
+                                    <img src="images/star.png" class="img-fluid animated wow bounce delay-0-3s" />
+                                    <img src="images/star.png" class="img-fluid mt-4 animated wow bounce delay-0-4s" />
+                                </center>
+                            </div>
+                            <p class="color-light text-center mb-4">
+                                .......................................................</p>
+                            <h4 class="color-dark mb-4 mt-3 text-center animated wow zoomIn delay-0-5s">Yay! You have
+                                completed the quiz</h4>
+                            <p class="color-dark mb-3 mt-3 text-center animated wow zoomIn delay-0-5s">Your Score:
+                                <span id="totalCorrect" class=""><b></b></span>
+                            </p>
+                            <p class="color-dark mb-3 mt-3 text-center animated wow zoomIn delay-0-5s">Correct Answers:
+                                <span id="correctAnswers" class=""><b></b></span>
+                            </p>
+                            <p class="color-dark mb-3 mt-3 text-center animated wow zoomIn delay-0-5s">Total time
+                                taken to solve quiz:
+                                <span id="timeTaken" class=""><b></b></span>
+                            </p>
+                            <center>
+                                <a href="quiz.html"><button id="remove-mr" type="button"
+                                        class="gradientBtn mr-5 mb-3 animated wow fadeInUp">Replay</button></a>
+                                <a href="index.html"><button type="button"
+                                        class="gradientBtn animated wow fadeInUp">Home</button></a>
+                                <center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- right click off -->
+    <script type="text/javascript">
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+    <!-- Quiz JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
